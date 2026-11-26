@@ -1,0 +1,257 @@
+@charset "UPF-8";
+
+.frontpage{
+    display: flex;
+    justify-content: space-around;
+    background-color: #c4e3f5;
+}
+.logo{
+    width: 90vw;
+    margin-top: 14px;
+    max-width: 100%;
+    width: 100%;
+}
+.main-nav{
+    display: flex;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    margin-top: 50px;
+    list-style: none;
+}
+.main-nav i {
+    color: #e74c3c;
+    margin-right: 5px;
+}
+/* 消除 h1 預設的外距，避免影響圖片定位 */
+.map-container h1 {
+    margin: 0;
+}
+
+/* 設定容器為定位基準 */
+.map-container {
+    position: relative;
+    display: inline-block;
+    width: 100%; /* 讓地圖符合視窗寬度，也可改成固定寬度如 1000px */
+}
+
+.map-container img.logo {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* 清除清單點點與預設邊距 */
+.main-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* 統一設定三個地標的外觀 */
+.main-nav li {
+    position: absolute;
+    transform: translate(-50%, -100%);
+    transition: transform 0.2s ease;
+}
+
+.main-nav li a {
+    color: #e74c3c;
+    font-size: 28px;
+    text-decoration: none;
+    filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.4));
+}
+
+.main-nav li:hover {
+    transform: translate(-50%, -100%) scale(1.3);
+    z-index: 10;
+}
+
+.main-nav li a:hover {
+    color: #c0392b;
+}
+
+
+/* 港區 */
+.pin-minato {
+    top: 54.25%;
+    left: 48.3%;
+}
+
+/* 新宿區 */
+.pin-shinjuku {
+    top: 40.5%;
+    left: 41.5%;
+}
+
+/* 澀谷區 */
+.pin-shibuya {
+    top: 48.8%;
+    left: 36.85%;
+}
+
+/* 千代田區 */
+.pin-Chiyoda {
+    top: 44%;
+    left: 50.5%;
+}
+/* 文京區 */
+.pin-Bunkyo {
+    top: 34.5%;
+    left: 49.5%;
+}
+
+/* 台東區 */
+.pin-Taito {
+    top: 35%;
+    left: 58.5%;
+}
+/* --- 分頁基礎樣式 --- */
+.subpage {
+    margin: 0;
+    background-color: #8cc1d4;
+    font-family: "Microsoft JhengHei", sans-serif;
+    color: #333;
+}
+
+.page-header {
+    background-color: #b5cadd;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+
+.page-header h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.back-btn {
+    position: absolute;
+    left: 20px;
+    top: 25px;
+    text-decoration: none;
+    color: #555;
+    font-size: 15px;
+}
+
+.back-btn:hover {
+    color: #e74c3c;
+}
+
+/* 內容容器 */
+.container {
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.intro {
+    background-color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* 左圖右文卡片 */
+.spot-card {
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 1px solid #e0e0e0;
+}
+
+.spot-card img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover; /* 防止圖片被壓扁變形 */
+}
+
+.spot-text {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.spot-text h3 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    color: #222;
+}
+
+.spot-text p {
+    margin: 0;
+    line-height: 1.6;
+    color: #555;
+}
+/* --- 旅遊相簿區塊 --- */
+.photo-section {
+    margin-top: 40px;
+}
+
+.photo-section h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 8px;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 一排固定放 3 張照片 */
+    gap: 15px; /* 照片之間的間距 */
+}
+
+.photo-grid img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; /* 自動裁切填滿，照片不會變形 */
+    border-radius: 6px;
+    border: 1px solid #ffffff;
+    cursor: pointer;
+}
+.photo-grid img:hover {
+    transform: scale(1.2);
+}
+/* --- 地圖左下角延伸景點（富士山、鎌倉） --- */
+.main-nav li.arrow-fuji,
+.main-nav li.arrow-kamakura {
+    transform: none; /* 取消原本水滴地標的置中偏移 */
+}
+
+.arrow-fuji a,
+.arrow-kamakura a {
+    display: inline-block;
+    background-color: #abd1f7; /* 深藍灰色底，跟紅色市區地標做區隔 */
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 2px solid #ffffff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* 滑鼠移過去變色並往左下角指一下 */
+.arrow-fuji a:hover,
+.arrow-kamakura a:hover {
+    background-color: #b11804;
+    color: #ffffff;
+    transform: translate(-4px, 4px);
+}
+
+/* 兩個按鈕在左下角的位置（可依實際畫面微調） */
+.arrow-fuji {
+    bottom: 35%;
+    left: 3%;
+}
+
+.arrow-kamakura {
+    bottom: 4%;
+    left: 35%;
+}
